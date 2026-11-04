@@ -35,6 +35,17 @@ class HomeController
         include __DIR__ . "/../../template/template_accueil.php";
     }
 
+    public function catalogue() : mixed 
+    {
+        $data["nomLibrairie"] = "La Petite Librairie";
+        $data["livres"] = [
+            ["titre"=>"Le Petit Prince", "auteur" =>"Antoine de Saint-Exupéry", "genre"=>"Conte"],
+            ["titre"=>"Le Le Hobbit ", "auteur" =>"J. R. R. Tolkien", "genre"=>"Fantasy"],
+            ["titre"=>"L’Île au trésor", "auteur" =>"Robert Louis Stevenson", "genre"=>"Aventure"]
+        ];
+        return $this->render("catalogue", "Catalogue", $data);
+    }
+
     //Méthode qui va retourner les templates
     private function render(string $template, ?string $title, array $data = []): mixed
     {
